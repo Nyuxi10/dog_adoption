@@ -1,0 +1,8 @@
+%h1 Mascotas en adopcion
+= link_to 'nueva mascota', new_pet_path
+%table 
+  %tr
+    %th Nombre
+  = @pets.each do |pet| 
+    %tr
+      %td = pet.name
