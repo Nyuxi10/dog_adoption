@@ -2,11 +2,10 @@
 FactoryBot.define do 
 
   factory :pet do 
-    name 'leia'
+    name 'leia' 
     age 3
     gender 'female'
     breed 'normie'
-    location 'hangryHouse'
+    location 'hangryHouse'	
   end
-
 end

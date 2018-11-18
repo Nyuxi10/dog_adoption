@@ -1,8 +1,42 @@
-%h1 Mascotas en adopcion
-= link_to 'nueva mascota', new_pet_path
-%table 
-  %tr
-    %th Nombre
-  = @pets.each do |pet| 
+%body
+.index
+  %h1
+    ="Mascotas en Adopción"
+  = link_to 'Nueva Mascota', new_pet_path
+  %table
     %tr
-      %td = pet.name
+      %th
+        ="Nombre"
+      %th
+        ='Edad'
+      %th
+        ='Género'
+      %th
+        ='Raza'
+      %th
+        ='Localización'
+      %th
+        =''
+      %th
+        =''
+      %th
+        =''
+    - @pets.each do |pet|
+      %tr
+        %td
+          =pet.name
+        %td  
+          =pet.age
+        %td
+          =pet.gender
+        %td
+          =pet.breed
+        %td
+          =pet.location
+        %td
+          =link_to 'Mostrar', pet_path(pet)
+        %td
+          =link_to 'Editar', edit_pet_path(pet)
+        %td
+          =link_to 'Eliminar', pet_path(pet),
+                    method: :delete, data:{confimr: 'Are you sure?'}

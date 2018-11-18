@@ -4,13 +4,13 @@ class PetsController < ApplicationController
     @pet = Pet.new
   end
 
-  def create 
+  def create
     @pet = Pet.new(pet_params)
-    if @pet.save 
+    if @pet.save
       redirect_to @pet
     else
-     render 'new' 
-    end 
+     render 'new'
+    end
   end
 
   def index
@@ -40,16 +40,16 @@ class PetsController < ApplicationController
     redirect_to pets_path
   end
 
-  private 
-  def pet_params
-    params.require(:pet).permit(:name, :age, :gender, :breed, :location)
-  end
+  private
+    def pet_params
+      params.require(:pet).permit(:name, :age, :gender, :breed, :location)
+    end
 
-  def find_user
-    if Pet.find_by(id: params[:id])
-      @pet = Pet.find(params[:id])
-    else
-      redirect_to users:path, alert:"no se encontro la mascota"
-    end   
-  end
+  #def find_user
+   # if Pet.find_by(id: params[:id])
+    #  @pet = Pet.find(params[:id])
+   # else
+    #  redirect_to users:path, alert:"no se encontro la mascota"
+   # end   
+ # end
 end
